@@ -22,4 +22,5 @@ urlpatterns = [
     path('saludar/', index),
     path('sumar/<int:a>/<int:b>', sumar),
     path('mi-familia/', monstrar_familiares),
+    path('mi-familia/buscar', BuscarFamiliares.as_view()),
 ]
