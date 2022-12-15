@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from ejemplo.models import Familiar
 from ejemplo.models import Mascota
+from ejemplo.models import Automovil
 from ejemplo.forms import Buscar, FamiliarForm, MascotaForm
 from django.views import View
-from django.views.generic import DetailView, ListView, CreateView, DeleteView
+from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView
 
 def index(request):
     return render(request, "ejemplo/saludar.html")
@@ -106,6 +107,11 @@ class FamiliarBorrar(DeleteView):
   model = Familiar
   success_url = "/panel-familia"
 
+class FamiliarActualizar(UpdateView):
+  model = Familiar
+  success_url = "/panel-familia"
+  fields = ["nombre", "direccion", "numero_pasaporte"]
+
 class MascotaList(ListView):
   model = Mascota
 
@@ -120,4 +126,29 @@ class MascotaCrear(CreateView):
 class MascotaBorrar(DeleteView):
   model = Mascota
   success_url = "/panel-mascota"
+
+class MascotaActualizar(UpdateView):
+  model = Mascota
+  success_url = "/panel-mascota"
+  fields = ["raza", "edad"]
+
+class AutomovilList(ListView):
+  model = Automovil
+
+class AutomovilCrear(CreateView):
+  model = Automovil
+  success_url = "/panel-automovil"
+  fields = ["marca", "modelo", "año", "km"]
+
+class AutomovilDetalle(DetailView):
+  model = Automovil
+
+class AutomovilBorrar(DeleteView):
+  model = Automovil
+  success_url = "/panel-automovil"
+
+class AutomovilActualizar(UpdateView):
+  model = Automovil
+  success_url = "/panel-automovil"
+  fields = ["marca", "modelo", "año", "km"]
 

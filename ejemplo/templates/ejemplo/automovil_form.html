@@ -10,8 +10,8 @@
 
     <form method="post">
         {% csrf_token %}
-        "¿ Estás seguro de borrar la mascota {{ object }} ?"
-        <input type="submit" value="SI">
+        {{form.as_p}}
+        <input type="submit" value="agregar">
     </form>
 
 </body>

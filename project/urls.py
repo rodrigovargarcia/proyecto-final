@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (index, sumar, monstrar_familiares, BuscarFamiliar, AltaFamiliar, 
                             ActualizarFamiliar, BorrarFamiliar, FamiliarDetalle, FamiliarList,
-                            FamiliarCrear, FamiliarBorrar, MascotaList, MascotaDetalle, MascotaBorrar)                           
+                            FamiliarCrear, FamiliarBorrar, FamiliarActualizar, MascotaList, MascotaCrear, MascotaDetalle, MascotaBorrar,
+                            MascotaActualizar, AutomovilList, AutomovilCrear, AutomovilDetalle, AutomovilBorrar, AutomovilActualizar)         
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,7 +33,15 @@ urlpatterns = [
     path('panel-familia/', FamiliarList.as_view()),
     path('panel-familia/crear', FamiliarCrear.as_view()),
     path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view()),
+    path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view()),
     path('panel-mascota/', MascotaList.as_view()),
+    path('panel-mascota/crear', MascotaCrear.as_view()),
     path('panel-mascota/<int:pk>/detalle', MascotaDetalle.as_view()),
     path('panel-mascota/<int:pk>/borrar', MascotaBorrar.as_view()),
+    path('panel-mascota/<int:pk>/actualizar', MascotaActualizar.as_view()),
+    path('panel-automovil/', AutomovilList.as_view()),
+    path('panel-automovil/crear', AutomovilCrear.as_view()),
+    path('panel-automovil/<int:pk>/detalle', AutomovilDetalle.as_view()),
+    path('panel-automovil/<int:pk>/borrar', AutomovilBorrar.as_view()),
+    path('panel-automovil/<int:pk>/actualizar', AutomovilActualizar.as_view()),
 ]
