@@ -9,4 +9,10 @@ class Familiar(models.Model):
     def __str__(self):
       return f"{self.nombre}, {self.numero_pasaporte}, {self.id}"
 
+class Mascota(models.Model):
 
+    raza = models.CharField(max_length=50)
+    edad = models.IntegerField()
+
+    def __str__(self):
+      return f"{self.raza}, {self.edad}"

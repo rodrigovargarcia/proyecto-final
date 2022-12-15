@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from ejemplo.models import Familiar
-from ejemplo.forms import Buscar, FamiliarForm
+from ejemplo.models import Mascota
+from ejemplo.forms import Buscar, FamiliarForm, MascotaForm
 from django.views import View
-from django.views.generic import DetailView, ListView, CreateView
+from django.views.generic import DetailView, ListView, CreateView, DeleteView
 
 def index(request):
     return render(request, "ejemplo/saludar.html")
@@ -100,4 +101,23 @@ class FamiliarCrear(CreateView):
   model = Familiar
   success_url = "/panel-familia"
   fields = ["nombre", "direccion", "numero_pasaporte"]
+
+class FamiliarBorrar(DeleteView):
+  model = Familiar
+  success_url = "/panel-familia"
+
+class MascotaList(ListView):
+  model = Mascota
+
+class MascotaDetalle(DetailView):
+  model = Mascota
+
+class MascotaCrear(CreateView):
+  model = Mascota
+  success_url = "/panel-mascota"
+  fields = ["raza", "edad"]
+
+class MascotaBorrar(DeleteView):
+  model = Mascota
+  success_url = "/panel-mascota"
 

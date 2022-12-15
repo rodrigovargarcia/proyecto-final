@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (index, sumar, monstrar_familiares, BuscarFamiliar, AltaFamiliar, 
                             ActualizarFamiliar, BorrarFamiliar, FamiliarDetalle, FamiliarList,
-                            FamiliarCrear)
+                            FamiliarCrear, FamiliarBorrar, MascotaList, MascotaDetalle, MascotaBorrar)                           
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +31,8 @@ urlpatterns = [
     path('panel-familia/<int:pk>/detalle', FamiliarDetalle.as_view()),
     path('panel-familia/', FamiliarList.as_view()),
     path('panel-familia/crear', FamiliarCrear.as_view()),
+    path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view()),
+    path('panel-mascota/', MascotaList.as_view()),
+    path('panel-mascota/<int:pk>/detalle', MascotaDetalle.as_view()),
+    path('panel-mascota/<int:pk>/borrar', MascotaBorrar.as_view()),
 ]
