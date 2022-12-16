@@ -4,7 +4,14 @@
 
 En este repositorio vamos a crear 3 diferentes tipos de modelos, utilizando el framework Django y sus correspondientes funcionalidades, las cuales nos van a permitir crear distintos paths o rutas facilitando el acceso a las caracteristicas de cada uno de los modelos, asi como tambien, poder eliminar, actualizar o crear nuevos datos.
 
-##programas necesarios
+
+#H1 header
+##H2 header
+###H3 header
+####H4 header
+#####H5 header
+######H6 header
+
 Debemos tener instalado VSCode, git y Django en nuestro ordenador.
 
 ####Una vez corroborado tener instalados los programas anteriormente mencionados, seguir esta serie de pasos
