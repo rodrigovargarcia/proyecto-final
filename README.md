@@ -1,18 +1,37 @@
 # proyecto-final
-Introducción(Underline)
+##Introducción
 =============
 
-Tenemos 3 tipos de modelos: Familiar
-                            Mascota
-                            Automovil
+En este repositorio vamos a crear 3 diferentes tipos de modelos, utilizando el framework Django y sus correspondientes funcionalidades, las cuales nos van a permitir crear distintos paths o rutas facilitando el acceso a las caracteristicas de cada uno de los modelos, asi como tambien, poder eliminar, actualizar o crear nuevos datos.
 
-cada uno de ellos con sus correspondientes funcionalidades heredadas de Django
-mediante los paths podemos ver la lista de datos ingresados, con sus caracteristicas, asi como también 
-podemos ver en detalle cada uno de ellos, eliminarlos y actualizarlos.
+###Programas necesarios
+Debemos tener instalado VSCode, git y Django en nuestro ordenador.
 
-creamos cada uno de los modelos en la carpeta models.py y luego realizamos las migrations para poder continuar.
-luego con cada funcionalidad que querramos incorporar, seguimos el workflow de django, configurando o creando templates, 
-los cuales permiten mostrar la informacion al usuario, siguiendo por las views que cargan los datos provenientes del modelo y por ultimo
-configuramos las rutas o paths necesarias para poder realizar cada funcion.
-tambien, creamos la carpeta seed_data que nos permite cargar informacion en la base de datos para poder testear el funcionamiento correcto de nuestro MVT
+####Una vez corroborado tener instalados los programas anteriormente mencionados, seguir esta serie de pasos
+                
+1 Abrir VSCode.
 
+2 Seleccionar Clone git repository y agregar la URL de este proyecto.
+
+3 Seleccionar o crear una carpeta para el programa.
+
+4 En la terminal ejecuta los comandos: python manage.py migrate python manage.py runserver
+
+5 Ya se puede abrir la pagina que aparece en el texto, tipicamente: http://127.0.0.1:8000/
+
+6 Si quieres tener algunos datos precargados, en la terminal, ejecuta los comandos: python manage.py shell import seed_data
+
+En la web hay 3 tipos de modelos: mi-familia, automoviles y mascotas:
+
+Agrega las url que ves abajo a la url en la barra de direcciones para utilizarlas, las funciones Alta y Buscar están funcionando, las demás no están aún 100% testeadas.
+Ejemplos, reemplaza las URLs antes de mi-familia por las que te aparezcan cuando haces runserver! Familia
+
+http://127.0.0.1:8000/mi-familia : Para ver los familiares(sólo veras Familiares pre cargados si hiciste el paso 6)
+
+http://127.0.0.1:8000/mi-familia/alta Para crear un familiar nuevo
+
+http://127.0.0.1:8000/mi-familia/buscar Para buscar un familiar por nombre
+
+Reemplaza mi-familia por automoviles y mascotas respectivamente.
+                
+Muchas gracias!
