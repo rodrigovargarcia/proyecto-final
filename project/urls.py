@@ -19,6 +19,7 @@ from ejemplo.views import (index, sumar, monstrar_familiares, BuscarFamiliar, Al
                             ActualizarFamiliar, BorrarFamiliar, FamiliarDetalle, FamiliarList,
                             FamiliarCrear, FamiliarBorrar, FamiliarActualizar, MascotaList, MascotaCrear, MascotaDetalle, MascotaBorrar,
                             MascotaActualizar, AutomovilList, AutomovilCrear, AutomovilDetalle, AutomovilBorrar, AutomovilActualizar)         
+from blog_app.views import index, PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,4 +45,15 @@ urlpatterns = [
     path('panel-automovil/<int:pk>/detalle', AutomovilDetalle.as_view()),
     path('panel-automovil/<int:pk>/borrar', AutomovilBorrar.as_view()),
     path('panel-automovil/<int:pk>/actualizar', AutomovilActualizar.as_view()),
+    path('blog-app/', index, name="blog-app-index"),
+    path('blog-app/listar/', PostListar.as_view(), name="blog-app-listar"),
+    path('blog-app/<int:pk>/detalle/', PostDetalle.as_view(), name="blog-app-detalle"),
+    path('blog-app/listar/', PostListar.as_view(), name="blog-app-listar"),
+    path('blog-app/crear/', PostCrear.as_view(), name="blog-app-crear"),
+    path('blog-app/<int:pk>/borrar/', PostBorrar.as_view(), name="blog-app-borrar"),
+    path('blog-app/<int:pk>/actualizar/', PostActualizar.as_view(), name="blog-app-actualizar"),
 ]
+
+
+from blog_app.views import index, PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar
+

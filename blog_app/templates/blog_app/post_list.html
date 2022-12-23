@@ -1,0 +1,16 @@
+{% extends 'blog_app/base.html' %}
+
+{% block contenido %}
+<a href="{% url 'blog-app-crear' %}">Crear Post</a>
+<ul>
+{% for post in object_list %}
+    <li>{{post.titulo}}</li>
+    <li>
+        {{post.publicado_el}}  
+        <a href="{% url 'blog-app-borrar' post.id %}">Borrar</a>
+        <a href="{% url 'blog-app-actualizar' post.id %}">Actualizar</a>
+        <a href="{% url 'blog-app-detalle' post.id %}">Ver</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
