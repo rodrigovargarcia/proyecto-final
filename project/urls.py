@@ -13,13 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static 
 from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (index, sumar, monstrar_familiares, BuscarFamiliar, AltaFamiliar, 
                             ActualizarFamiliar, BorrarFamiliar, FamiliarDetalle, FamiliarList,
-                            FamiliarCrear, FamiliarBorrar, FamiliarActualizar, MascotaList, MascotaCrear, MascotaDetalle, MascotaBorrar,
-                            MascotaActualizar, AutomovilList, AutomovilCrear, AutomovilDetalle, AutomovilBorrar, AutomovilActualizar)         
-from blog_app.views import index, PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar
+                            FamiliarCrear, FamiliarBorrar, FamiliarActualizar, MascotaList, 
+                            MascotaCrear, MascotaDetalle, MascotaBorrar, MascotaActualizar, 
+                            AutomovilList, AutomovilCrear, AutomovilDetalle, AutomovilBorrar, 
+                            AutomovilActualizar)         
+from blog_app.views import (index, PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
+                            UserSignUp, UserLogin, UserLogout, AvatarActualizar, UserActualizar,
+                            MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -52,8 +58,16 @@ urlpatterns = [
     path('blog-app/crear/', PostCrear.as_view(), name="blog-app-crear"),
     path('blog-app/<int:pk>/borrar/', PostBorrar.as_view(), name="blog-app-borrar"),
     path('blog-app/<int:pk>/actualizar/', PostActualizar.as_view(), name="blog-app-actualizar"),
+    path('blog-app/signup/', UserSignUp.as_view(), name = "blog-app-signup"),
+    path('blog-app/login/', UserLogin.as_view(), name = "blog-app-login"),
+    path('blog-app/logout/', UserLogout.as_view(), name = "blog-app-logout"),
+    path('blog-app/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name = "blog-app-avatars-actualizar"),
+    path('blog-app/users/<int:pk>/actualizar/', UserActualizar.as_view(), name = "blog-app-users-actualizar"),
+    path('blog-app/users/mensajes/crear/', MensajeCrear.as_view(), name = "blog-app-mensajes-crear"),
+    path('blog-app/users/<int:pk>/detalle/', MensajeDetalle.as_view(), name = "blog-app-mensajes-detalle"),
+    path('blog-app/users/mensajes/listar/', MensajeListar.as_view(), name = "blog-app-mensajes-listar"),
+    path('blog-app/users/<int:pk>/borrar/', MensajeBorrar.as_view(), name = "blog-app-mensajes-borrar"),
 ]
 
-
-from blog_app.views import index, PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

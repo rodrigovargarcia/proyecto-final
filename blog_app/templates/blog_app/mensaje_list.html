@@ -1,0 +1,15 @@
+{% extends 'blog_app/base.html' %}
+
+{% block contenido %}
+<ul>
+{% for mensaje in object_list %}
+    <li>
+        {{mensaje.enviado_el}} -- {{mensaje.email}} -- {{mensaje.nombre}}
+        {% if user.is_authenticated %}
+        <a href="{% url 'blog-app-mensajes-detalle' mensaje.id %}">Ver</a>
+        <a href="{% url 'blog-app-mensajes-borrar' mensaje.id %}">Borrar</a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
