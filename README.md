@@ -1,3 +1,10 @@
+# Link a video de presentación en Youtube: 
+
+----
+
+> https://www.youtube.com/watch?v=sJ4p-Rp7y7o
+
+
 # Introduccion
                 
 ----
@@ -57,6 +64,5 @@ panel-mascotas
 - Luego:
 
  `import seed_data`
-
 
                 
